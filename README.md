@@ -104,39 +104,39 @@ https://github.com/miranitta/Paper2Lab
 
 ### Landing Page
 
-![Landing Page](assets/landing.png)
+![Landing Page](assets/screenshots/landing.png)
 
 ### Quick Summary
 
-![Quick Summary](assets/quick-summary.png)
+![Quick Summary](assets/screenshots/quick-summary.png)
 
 ### Summary
 
-![Summary](assets/summary.png)
+![Summary](assets/screenshots/summary.png)
 
 ### Lab Starter Kit
 
-![Lab Starter Kit](assets/lab-kit.png)
+![Lab Starter Kit](assets/screenshots/lab-kit.png)
 
 ### Evidence Viewer
 
-![Evidence Viewer](assets/evidence.png)
+![Evidence Viewer](assets/screenshots/evidence.png)
 
 ### Ask The Paper
 
-![Ask The Paper](assets/ask-paper.png)
+![Ask The Paper](assets/screenshots/ask-paper.png)
 
 ### Advanced Analysis
 
-![Advanced Analysis](assets/advanced.png)
+![Advanced Analysis](assets/screenshots/advanced.png)
 
 ### Export
 
-![Export](assets/export.png)
+![Export](assets/screenshots/export.png)
 
 ### Modal deployment
 
-![Modal deployment](assets/modal-deploy.png)
+![Modal deployment](assets/screenshots/modal-deploy.png)
 
 ---
 
