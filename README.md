@@ -100,6 +100,46 @@ https://github.com/miranitta/Paper2Lab
 
 ---
 
+## Screenshots
+
+### Landing Page
+
+![Landing Page](assets/landing.png)
+
+### Quick Summary
+
+![Quick Summary](assets/quick-summary.png)
+
+### Summary
+
+![Summary](assets/summary.png)
+
+### Lab Starter Kit
+
+![Lab Starter Kit](assets/lab-kit.png)
+
+### Evidence Viewer
+
+![Evidence Viewer](assets/evidence.png)
+
+### Ask The Paper
+
+![Ask The Paper](assets/ask-paper.png)
+
+### Advanced Analysis
+
+![Advanced Analysis](assets/advanced.png)
+
+### Export
+
+![Export](assets/export.png)
+
+### Modal deployment
+
+![Modal deployment](assets/modal-deploy.png)
+
+---
+
 ## Team
 
 Solo Submission
@@ -223,6 +263,33 @@ By choice:
 
 ---
 
+## Project Structure
+
+paper2lab/
+├── app.py
+├── requirements.txt
+├── modal_refine.py
+├── src/
+│   └── paper2lab/
+│       ├── data/
+│       │   └── pdf_loader.py
+│       ├── inference/
+│       │   ├── pipeline.py
+│       │   ├── paper_card.py
+│       │   ├── roadmap.py
+│       │   ├── lab_starter_kit.py
+│       │   ├── refinement.py
+│       │   └── nemotron_refiner.py
+│       ├── rag/
+│       │   ├── embeddings.py
+│       │   ├── vector_store.py
+│       │   └── qa.py
+│       └── evaluation/
+│           └── reproducibility.py
+└── README.md
+
+---
+
 ## How It Works
 
 1. Upload a PDF paper
@@ -233,6 +300,20 @@ By choice:
 6. Run reproducibility analysis
 7. Generate lab starter kit
 8. Export results
+
+---
+
+## Installation
+
+git clone https://github.com/miranitta/Paper2Lab.git
+cd Paper2Lab
+
+python -m venv .venv
+source .venv/bin/activate
+
+pip install -r requirements.txt
+
+python app.py
 
 ---
 
