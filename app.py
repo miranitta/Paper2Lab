@@ -1109,7 +1109,7 @@ footer {
 
 /* Custom placeholder */
 #pdf_upload .wrap::after {
-  content: "☁️\A Drag & drop your PDF file here\A or click to browse";
+  content: "☁️\\A Drag & drop your PDF file here\\A or click to browse";
   white-space: pre-line;
   color: #334155 !important;
   -webkit-text-fill-color: #334155 !important;

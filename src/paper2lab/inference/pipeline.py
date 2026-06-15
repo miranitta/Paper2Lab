@@ -27,7 +27,7 @@ from paper2lab.inference.visual_explainer import explain_figures_and_tables
 from paper2lab.inference.auto_select import build_auto_best_card
 
 
-RefinementMode = Literal["none", "nemotron"]
+RefinementMode = Literal["none", "local", "nemotron"]
 
 
 class PaperPipeline:
@@ -50,7 +50,13 @@ class PaperPipeline:
         pdf_path: str | Path,
         refinement_mode: RefinementMode | None = None,
     ) -> Dict[str, Any]:
-        active_refinement_mode = refinement_mode or self.refinement_mode
+        selected_refinement_mode = (
+            refinement_mode or self.refinement_mode or "local"
+        ).lower().strip()
+
+        active_refinement_mode = (
+            "none" if selected_refinement_mode == "local" else selected_refinement_mode
+        )
 
         extracted = extract_pdf(pdf_path, engine=self.pdf_engine)
         paper_card = build_paper_card(extracted)
@@ -78,8 +84,8 @@ class PaperPipeline:
             return_comparison=True,
         )
         auto_selection = build_auto_best_card(
-        local_card=paper_card,
-        refinement=refinement,
+            local_card=paper_card,
+            refinement=refinement,
             )
 
         final_paper_card = auto_selection["final_paper_card"]
@@ -112,7 +118,7 @@ class PaperPipeline:
 
         result: Dict[str, Any] = {
             "status": "ok",
-            "refinement_mode": active_refinement_mode,
+            "refinement_mode": selected_refinement_mode,
             "paper_card": paper_card,
             "paper_card_refined": refinement.get("after_refinement", paper_card),
             "paper_card_final": final_paper_card,

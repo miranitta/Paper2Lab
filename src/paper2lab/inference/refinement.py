@@ -5,7 +5,7 @@ from typing import Any, Dict, Literal
 from paper2lab.inference.nemotron_refiner import refine_with_nemotron
 
 
-RefinementMode = Literal["none", "nemotron"]
+RefinementMode = Literal["none", "local", "nemotron"]
 
 
 def refine_optional(
@@ -14,14 +14,16 @@ def refine_optional(
     return_comparison: bool = True,
 ) -> Dict[str, Any]:
     """
-    Default: keep local hardcoded/rule-based extraction.
-    Optional: refine the candidate with Nemotron.
+    none/local: keep local rule-based extraction.
+    nemotron: refine the candidate with Nemotron.
     """
 
-    if mode == "none":
+    mode = (mode or "none").lower().strip()
+
+    if mode in {"none", "local"}:
         return {
             "status": "skipped",
-            "mode": "none",
+            "mode": mode,
             "before_refinement": paper_card,
             "after_refinement": paper_card,
             "diff_summary": {
@@ -67,4 +69,15 @@ def refine_optional(
                 },
             }
 
-    raise ValueError(f"Unsupported refinement mode: {mode}")
+    return {
+        "status": "error",
+        "mode": mode,
+        "error": f"Unsupported refinement mode: {mode}",
+        "before_refinement": paper_card,
+        "after_refinement": paper_card,
+        "diff_summary": {
+            "changed_fields": [],
+            "added_fields": [],
+            "removed_fields": [],
+        },
+    }
