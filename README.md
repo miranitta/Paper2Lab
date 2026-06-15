@@ -9,14 +9,17 @@ app_file: app.py
 pinned: false
 
 tags:
+  - track:backyard
+  - sponsor:nvidia
+  - sponsor:modal
+  - achievement:offbrand
+  - achievement:fieldnotes
 
   - backyard-ai
-  - off-brand
-  - field-notes
-  - nvidia
   - scientific-research
   - rag
   - document-ai
+  - nvidia
   - reproducibility
   - gradio
   - modal
