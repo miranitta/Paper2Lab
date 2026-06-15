@@ -61,7 +61,7 @@ Paper2Lab helps researchers move from reading papers to designing experiments by
 
 **Hugging Face Space**
 
-https://huggingface.co/spaces/RLazreg/Paper2Lab
+https://huggingface.co/spaces/build-small-hackathon/Paper2Lab
 
 ---
 
