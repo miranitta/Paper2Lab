@@ -11,10 +11,12 @@ pinned: false
 tags:
 
   - backyard-ai
+  - off-brand
+  - field-notes
+  - nvidia
   - scientific-research
   - rag
   - document-ai
-  - nvidia
   - reproducibility
   - gradio
   - modal
