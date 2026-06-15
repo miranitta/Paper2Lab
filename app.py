@@ -967,9 +967,9 @@ footer {
   overflow: hidden !important;
 }
 
-/* General text */
-.gradio-container .markdown,
-.gradio-container p,
+/* General text - exclude hero */
+.gradio-container .markdown:not(.hero):not(.hero *),
+.gradio-container p:not(.hero p),
 .gradio-container li,
 .gradio-container td,
 .gradio-container th,
@@ -1219,12 +1219,12 @@ footer {
 
 /* EMERGENCY READABILITY FIX */
 
-.gradio-container h1,
-.gradio-container h2,
-.gradio-container h3,
-.gradio-container h4,
-.gradio-container h5,
-.gradio-container h6 {
+.gradio-container h1:not(.hero h1),
+.gradio-container h2:not(.hero h2),
+.gradio-container h3:not(.hero h3),
+.gradio-container h4:not(.hero h4),
+.gradio-container h5:not(.hero h5),
+.gradio-container h6:not(.hero h6) {
     color: #111827 !important;
     opacity: 1 !important;
     visibility: visible !important;
@@ -1535,6 +1535,65 @@ footer {
   background: #ffffff !important;
   color: #111827 !important;
   -webkit-text-fill-color: #111827 !important;
+}
+
+/* HF SPACE HERO FINAL OVERRIDE */
+.gradio-container .hero,
+.gradio-container .hero * {
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
+
+.gradio-container .hero h1,
+.gradio-container .hero h1 *,
+.gradio-container .hero p,
+.gradio-container .hero .logo-text {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.gradio-container .hero .kicker {
+  color: #67e8f9 !important;
+  -webkit-text-fill-color: #67e8f9 !important;
+}
+
+.gradio-container .hero h1 span {
+  color: #c4b5fd !important;
+  -webkit-text-fill-color: #c4b5fd !important;
+}
+
+.gradio-container .hero p {
+  color: rgba(255, 255, 255, 0.92) !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.92) !important;
+}
+
+/* ABSOLUTE FINAL HERO FIX FOR HF */
+.gradio-container .hero {
+  color: #ffffff !important;
+}
+
+.gradio-container .hero h1,
+.gradio-container .hero h1 *,
+.gradio-container .hero p,
+.gradio-container .hero p *,
+.gradio-container .hero .logo-text,
+.gradio-container .hero .hero-badge,
+.gradio-container .hero .hero-badge * {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+.gradio-container .hero .kicker {
+  color: #67e8f9 !important;
+  -webkit-text-fill-color: #67e8f9 !important;
+}
+
+.gradio-container .hero h1 span {
+  color: #c4b5fd !important;
+  -webkit-text-fill-color: #c4b5fd !important;
 }
 """
 
