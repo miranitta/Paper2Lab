@@ -264,7 +264,7 @@ By choice:
 ---
 
 ## Project Structure
-
+```text
 paper2lab/
 ├── app.py
 ├── requirements.txt
@@ -287,7 +287,7 @@ paper2lab/
 │       └── evaluation/
 │           └── reproducibility.py
 └── README.md
-
+```
 ---
 
 ## How It Works
