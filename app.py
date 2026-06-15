@@ -1428,6 +1428,42 @@ footer {
   -webkit-text-fill-color: inherit !important;
 }
 
+/* FINAL HERO READABILITY OVERRIDE */
+.hero,
+.hero .hero-content,
+.hero .hero-copy {
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
+
+.hero h1,
+.hero h1 *,
+.hero p,
+.hero .kicker,
+.hero .logo-text {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
+
+.hero .kicker {
+  color: #67e8f9 !important;
+  -webkit-text-fill-color: #67e8f9 !important;
+}
+
+.hero h1 span {
+  color: #c4b5fd !important;
+  -webkit-text-fill-color: #c4b5fd !important;
+}
+
+.hero p {
+  color: rgba(255,255,255,.92) !important;
+  -webkit-text-fill-color: rgba(255,255,255,.92) !important;
+}
+
 /* ================= ASK THE PAPER / RAG FIX ================= */
 
 .rag-panel,
