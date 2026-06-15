@@ -1,9 +1,17 @@
 import json
 import tempfile
 import html
+import sys
 from pathlib import Path
-
 import gradio as gr
+
+
+ROOT_DIR = Path(__file__).resolve().parent
+SRC_DIR = ROOT_DIR / "src"
+
+if SRC_DIR.exists() and str(SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(SRC_DIR))
+
 
 try:
     from paper2lab.inference.pipeline import PaperPipeline
