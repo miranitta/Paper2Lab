@@ -1,0 +1,40 @@
+# UI
+gradio>=5.0.0
+
+# PDF processing
+pymupdf>=1.26.0
+docling>=2.4.0
+
+# LLMs
+transformers>=4.53.0
+torch>=2.7.0
+accelerate>=1.8.0
+
+# Tokenizers & model loading
+sentencepiece>=0.2.0
+safetensors>=0.5.0
+tokenizers>=0.21.0
+
+# Data processing
+numpy>=2.2.0
+pandas>=2.3.0
+pyyaml>=6.0.2
+
+# Validation
+pydantic>=2.11.0
+
+# Utilities
+tqdm>=4.67.0
+python-dotenv>=1.1.0
+
+# Evaluation
+scikit-learn>=1.7.0
+
+# RAG
+sentence-transformers 
+faiss-cpu
+# Testing
+pytest>=8.4.0
+
+#modal
+modal
