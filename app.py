@@ -1,26 +1,36 @@
 import json
 import tempfile
 import html
+import os
 import sys
 from pathlib import Path
-import gradio as gr
-
 
 ROOT_DIR = Path(__file__).resolve().parent
 SRC_DIR = ROOT_DIR / "src"
 
-if SRC_DIR.exists() and str(SRC_DIR) not in sys.path:
-    sys.path.insert(0, str(SRC_DIR))
+sys.path.insert(0, str(ROOT_DIR))
+sys.path.insert(0, str(SRC_DIR))
 
+print("DEBUG ROOT_DIR:", ROOT_DIR)
+print("DEBUG SRC_DIR:", SRC_DIR)
+print("DEBUG SRC_EXISTS:", SRC_DIR.exists())
+print("DEBUG PIPELINE_EXISTS:", (SRC_DIR / "paper2lab" / "inference" / "pipeline.py").exists())
+print("DEBUG sys.path[:5]:", sys.path[:5])
+
+import gradio as gr
 
 try:
     from paper2lab.inference.pipeline import PaperPipeline
-except Exception:
+    print("DEBUG PaperPipeline import: OK")
+except Exception as e:
+    print("DEBUG PaperPipeline import failed:", repr(e))
     PaperPipeline = None
 
 try:
     from paper2lab.rag.qa import answer_from_pipeline_result
-except Exception:
+    print("DEBUG RAG import: OK")
+except Exception as e:
+    print("DEBUG RAG import failed:", repr(e))
     answer_from_pipeline_result = None
 
 
