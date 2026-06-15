@@ -445,6 +445,39 @@ def diff_cards(before: Dict[str, Any], after: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def _call_nvidia(prompt: str, model: str, timeout: int = 180) -> str:
+    modal_url = os.getenv("MODAL_REFINE_URL")
+    print("MODAL_REFINE_URL:", modal_url)
+
+    # =========================
+    # Use Modal if configured
+    # =========================
+    if modal_url:
+        response = requests.post(
+            modal_url,
+            json={
+                "prompt": prompt,
+                "model": model,
+            },
+            timeout=timeout,
+        )
+
+        if not response.ok:
+            raise RuntimeError(
+                f"Modal error {response.status_code}: {response.text[:1000]}"
+            )
+
+        data = response.json()
+
+        if data.get("status") != "ok":
+            raise RuntimeError(
+                f"Modal refinement failed: {data}"
+            )
+
+        return data["content"]
+
+    # =========================
+    # Fallback: Direct NVIDIA
+    # =========================
     api_key = (
         os.getenv("NVIDIA_API_KEY")
         or os.getenv("NVIDIA_API_KEY".lower())
@@ -452,14 +485,19 @@ def _call_nvidia(prompt: str, model: str, timeout: int = 180) -> str:
     )
 
     if not api_key:
-        raise RuntimeError("Missing NVIDIA_API_KEY. Set it in your environment before using refinement_mode='nemotron'.")
+        raise RuntimeError(
+            "Missing NVIDIA_API_KEY. Set it in your environment before using refinement_mode='nemotron'."
+        )
 
     payload = {
         "model": model,
         "messages": [
             {
                 "role": "system",
-                "content": "You are a precise scientific JSON refiner. Return only valid JSON. No markdown.",
+                "content": (
+                    "You are a precise scientific JSON refiner. "
+                    "Return only valid JSON. No markdown."
+                ),
             },
             {
                 "role": "user",
@@ -491,7 +529,9 @@ def _call_nvidia(prompt: str, model: str, timeout: int = 180) -> str:
     try:
         return data["choices"][0]["message"]["content"]
     except Exception as exc:
-        raise RuntimeError(f"Unexpected NVIDIA response: {data}") from exc
+        raise RuntimeError(
+            f"Unexpected NVIDIA response: {data}"
+        ) from exc
 
 
 def refine_with_nemotron(
